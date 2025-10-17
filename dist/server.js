@@ -3,6 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import puppeteer from "puppeteer";
 import axe from "axe-core";
+import { readFile } from "fs/promises";
 /** Map friendly ruleset/level → axe tags (wcag22/21) */
 function tagsFor(opts) {
     const r = opts?.ruleset ?? "wcag22";
@@ -97,6 +98,19 @@ server.registerTool("scan_batch", {
             }
         }
         return { content: [{ type: "text", text: JSON.stringify(out) }] };
+    }
+    finally {
+        await browser.close();
+    }
+});
+server.registerTool("scan_file", { description: "Run axe-core on a local HTML file", inputSchema: z.object({ path: z.string(), ruleset: z.enum(["wcag22", "wcag21"]).optional(), level: z.enum(["A", "AA", "AAA"]).optional(), extraTags: z.array(z.string()).optional() }).shape }, async (args) => {
+    const browser = await puppeteer.launch({ headless: true });
+    try {
+        const page = await browser.newPage();
+        const html = await readFile(args.path, "utf-8");
+        await page.setContent(html, { waitUntil: "domcontentloaded" });
+        const results = await runAxeOnPage(page, tagsFor({ ruleset: args.ruleset, level: args.level, extra: args.extraTags }));
+        return { content: [{ type: "text", text: JSON.stringify(results) }] };
     }
     finally {
         await browser.close();

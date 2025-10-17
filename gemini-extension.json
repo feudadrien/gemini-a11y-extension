@@ -1,0 +1,13 @@
+{
+  "name": "gemini-a11y",
+  "version": "0.1.0",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "a11y-axe": {
+      "command": "node",
+      "args": ["${extensionPath}${/}dist${/}server.js"],
+      "cwd": "${extensionPath}",
+      "timeout": 600000
+    }
+  }
+}

@@ -9,5 +9,8 @@
       "cwd": "${extensionPath}",
       "timeout": 600000
     }
+  },
+  "commands": {
+    "path": "commands/a11y"
   }
 }

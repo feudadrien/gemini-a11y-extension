@@ -1,0 +1,13 @@
+description = "Scan a local HTML file with axe-core; summarize fixes with WCAG links."
+prompt = '''
+Call `scan_file { path: {{args}}, ruleset: "wcag22", level: "AA" }`.
+
+After the tool returns JSON:
+1) Summarize top violations by impact (critical, serious, moderate, minor).
+2) For each rule, show: rule id, impact, count, and map tags like wcag143 → **SC 1.4.3**.
+3) For each SC, add:
+   - WCAG 2.2 spec: https://www.w3.org/TR/WCAG22/ (link to the SC section if possible)
+   - Understanding + How to Meet (QuickRef) links.
+4) Provide one concise code fix or design guideline per rule.
+Keep it ~200 words unless the user asks for more.
+'''

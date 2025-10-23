@@ -1,0 +1,5 @@
+
+# Generates a high-level summary of the accessibility scan results.
+name = "a11y:summarize-results"
+description = "Generates a high-level summary of the accessibility scan results."
+

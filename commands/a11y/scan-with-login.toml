@@ -1,0 +1,36 @@
+
+# Scans a URL that requires authentication.
+# This command will prompt you for your username and password.
+name = "a11y:scan-with-login"
+description = "Scans a URL that requires authentication."
+needs_auth = true
+
+[[argument]]
+name = "url"
+description = "The URL to scan."
+type = "string"
+optional = false
+
+[[argument]]
+name = "loginUrl"
+description = "The URL of the login page."
+type = "string"
+optional = false
+
+[[argument]]
+name = "usernameSelector"
+description = "The CSS selector for the username field."
+type = "string"
+optional = false
+
+[[argument]]
+name = "passwordSelector"
+description = "The CSS selector for the password field."
+type = "string"
+optional = false
+
+[[argument]]
+name = "submitSelector"
+description = "The CSS selector for the submit button."
+type = "string"
+optional = false

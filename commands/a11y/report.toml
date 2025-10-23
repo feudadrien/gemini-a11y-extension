@@ -1,0 +1,8 @@
+description = "Format the last scan into a Markdown report with WCAG grounding."
+prompt = '''
+Using the most recent scan JSON in context:
+- Group by WCAG SC (e.g., 1.4.3, 4.1.2).
+- For each SC: 1-line summary, link to TR 2.2 section, and 'Understanding' + 'How to Meet'.
+- Provide prioritized fixes and owners (design/dev/content) as bullets.
+Return Markdown only.
+'''

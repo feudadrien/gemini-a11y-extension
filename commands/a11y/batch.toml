@@ -1,0 +1,9 @@
+description = "Batch-scan newline- or comma-separated URLs (WCAG 2.2 AA)."
+prompt = '''
+Split {{args}} into URLs (comma or newline). Call:
+`scan_batch { urls: [PARSED_URLS], ruleset: "wcag22", level: "AA" }`.
+
+Then output a table:
+- url | critical | serious | moderate | minor | total
+Finish with the 3 most frequent SCs across the set, linking spec + quickref.
+'''

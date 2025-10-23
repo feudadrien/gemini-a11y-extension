@@ -7,7 +7,7 @@ An accessibility (a11y) extension for the Gemini CLI that uses axe-core to scan 
 To install the extension, use the following command:
 
 ```bash
-gemini extensions install feudadrien/gemini-a11y-extenison
+gemini extensions install feudadrien/gemini-a11y-extension
 ```
 
 ## Usage

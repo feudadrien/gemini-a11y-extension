@@ -48,7 +48,7 @@ async function runAxeOnPage(page: Page, runOnlyTags?: string[]) {
   return results;
 }
 
-const server = new McpServer({ name: "a11y-axe", version: "0.1.0" });
+const server = new McpServer({ name: "a11y-axe", version: "0.2.0" });
 
 const ScanArgs = z.object({
   url: z.string().url().optional(),
